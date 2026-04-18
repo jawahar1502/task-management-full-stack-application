@@ -2,7 +2,8 @@
 
 A modern, responsive, and user-friendly Task Management Web App built as part of my internship. This application allows users to efficiently create, organize, and track their daily tasks with a clean and intuitive interface.
 
-📌 Features
+📌 Features:
+
 🔐 User Authentication & Authorization
 Secure login and registration using JWT
 Password hashing with bcrypt

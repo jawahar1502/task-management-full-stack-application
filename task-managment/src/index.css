@@ -1,0 +1,123 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  * {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+  }
+
+  html {
+    scroll-behavior: smooth;
+  }
+
+  body {
+    @apply bg-dark-900 text-slate-100 font-sans antialiased;
+    background-image:
+      radial-gradient(ellipse at 20% 20%, rgba(124,17,245,0.08) 0%, transparent 50%),
+      radial-gradient(ellipse at 80% 80%, rgba(6,182,212,0.05) 0%, transparent 50%);
+    min-height: 100vh;
+  }
+
+  ::-webkit-scrollbar { width: 6px; }
+  ::-webkit-scrollbar-track { @apply bg-dark-800; }
+  ::-webkit-scrollbar-thumb { @apply bg-brand-700 rounded-full; }
+  ::-webkit-scrollbar-thumb:hover { @apply bg-brand-600; }
+}
+
+@layer components {
+  /* ── Buttons ─────────────────────────────────── */
+  .btn-primary {
+    @apply inline-flex items-center gap-2 px-5 py-2.5 rounded-xl
+           bg-gradient-to-r from-brand-600 to-brand-700
+           text-white font-semibold text-sm
+           shadow-glow hover:shadow-glow
+           hover:from-brand-500 hover:to-brand-600
+           active:scale-95 transition-all duration-200
+           disabled:opacity-50 disabled:cursor-not-allowed disabled:active:scale-100;
+  }
+
+  .btn-secondary {
+    @apply inline-flex items-center gap-2 px-5 py-2.5 rounded-xl
+           bg-dark-700 border border-dark-500
+           text-slate-300 font-medium text-sm
+           hover:bg-dark-600 hover:border-brand-700 hover:text-white
+           active:scale-95 transition-all duration-200;
+  }
+
+  .btn-danger {
+    @apply inline-flex items-center gap-2 px-4 py-2 rounded-xl
+           bg-rose-600/20 border border-rose-500/30
+           text-rose-400 font-medium text-sm
+           hover:bg-rose-600/30 hover:text-rose-300
+           active:scale-95 transition-all duration-200;
+  }
+
+  .btn-icon {
+    @apply p-2 rounded-lg text-slate-400 hover:text-white
+           hover:bg-dark-600 transition-all duration-200 active:scale-90;
+  }
+
+  /* ── Cards ───────────────────────────────────── */
+  .glass-card {
+    @apply bg-dark-800/80 backdrop-blur-md
+           border border-dark-600/60
+           rounded-2xl shadow-card;
+  }
+
+  .stat-card {
+    @apply glass-card p-5 hover:border-brand-700/40
+           hover:shadow-glow-sm transition-all duration-300
+           cursor-default;
+  }
+
+  /* ── Inputs ──────────────────────────────────── */
+  .input-field {
+    @apply w-full px-4 py-2.5 rounded-xl
+           bg-dark-700 border border-dark-500
+           text-slate-100 placeholder-slate-500
+           text-sm outline-none
+           focus:border-brand-600 focus:ring-2 focus:ring-brand-600/20
+           transition-all duration-200;
+  }
+
+  .input-label {
+    @apply block text-sm font-medium text-slate-300 mb-1.5;
+  }
+
+  /* ── Badges ──────────────────────────────────── */
+  .badge {
+    @apply inline-flex items-center gap-1 px-2.5 py-0.5
+           rounded-full text-xs font-semibold tracking-wide;
+  }
+
+  .badge-pending     { @apply badge bg-slate-700/60  text-slate-300  border border-slate-600/40; }
+  .badge-in-progress { @apply badge bg-amber-500/15  text-amber-400  border border-amber-500/30; }
+  .badge-completed   { @apply badge bg-emerald-500/15 text-emerald-400 border border-emerald-500/30; }
+
+  .badge-low    { @apply badge bg-slate-700/60  text-slate-300  border border-slate-600/40; }
+  .badge-medium { @apply badge bg-blue-500/15   text-blue-400   border border-blue-500/30; }
+  .badge-high   { @apply badge bg-rose-500/15   text-rose-400   border border-rose-500/30; }
+
+  /* ── Sidebar ─────────────────────────────────── */
+  .nav-link {
+    @apply flex items-center gap-3 px-4 py-3 rounded-xl
+           text-slate-400 font-medium text-sm
+           hover:bg-dark-700 hover:text-white
+           transition-all duration-200 cursor-pointer;
+  }
+
+  .nav-link.active {
+    @apply bg-brand-600/20 text-brand-300
+           border border-brand-600/30 shadow-glow-sm;
+  }
+
+  /* ── Misc ────────────────────────────────────── */
+  .divider { @apply border-t border-dark-600; }
+  .page-title { @apply text-2xl font-bold text-white tracking-tight; }
+  .section-title { @apply text-lg font-semibold text-slate-200; }
+}
